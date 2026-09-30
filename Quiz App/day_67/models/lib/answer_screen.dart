@@ -20,7 +20,7 @@ class AnswerScreen extends StatelessWidget{
             borderRadius: BorderRadius.circular(21),
           )
         ),
-        child: Text(answerText ),
+        child: Text(answerText, textAlign: TextAlign.center,),
     );
   }
 
