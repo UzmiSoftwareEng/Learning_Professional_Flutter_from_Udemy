@@ -26,7 +26,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
 
   @override
   Widget build(BuildContext context) {
-   final activeQuestion = questions[0];
+   final activeQuestion = questions[activeQuestionIndex];
 
     return SizedBox(
       width: double.infinity,
@@ -47,12 +47,16 @@ class _QuestionScreenState extends State<QuestionScreen> {
               height: 15,
             ),
             ...activeQuestion.getShuffledAnswers().map((item){
-              return AnswerScreen(
-                answerText: item ,
-                onTap: () {
-                  answerQuestion(item);
-                },
-                  );
+              return Column(
+                children: [AnswerScreen(
+                    answerText: item ,
+                    onTap: () {
+                      answerQuestion(item);
+                    },
+                      ),
+                  SizedBox(height: 15,)
+                ],
+              );
 
             }),
            ]

@@ -1,7 +1,8 @@
 import 'package:adding_data_model_and_dummy_data/question_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:adding_data_model_and_dummy_data/Start_Screen.dart';
+import 'package:adding_data_model_and_dummy_data/questions.dart';
+import 'package:adding_data_model_and_dummy_data/results_screen.dart';
 
 class Quiz extends StatefulWidget{
   const Quiz({super.key});
@@ -12,7 +13,7 @@ class Quiz extends StatefulWidget{
   }
 }
 class _QuizState extends State<Quiz> {
-  final List<String> selectedAnswers = [];
+  List<String> selectedAnswers = [];
   var activeScreen = 'start_screen';
 
   void switchScreen() {
@@ -23,6 +24,13 @@ class _QuizState extends State<Quiz> {
 
   void chooseAnswer(String answer) {
      selectedAnswers.add(answer);
+
+     if (selectedAnswers.length == questions.length){
+       setState(() {
+         selectedAnswers = [];
+         activeScreen = 'results_screen';
+       });
+     }
   }
 
   @override
@@ -33,6 +41,9 @@ class _QuizState extends State<Quiz> {
       screenWidget = QuestionScreen(
           onSelectAnswer : chooseAnswer,
       );
+    }
+    if (activeScreen == 'results_screen') {
+      screenWidget = const ResultsScreen();
     }
 
     return  Container(
