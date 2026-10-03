@@ -39,7 +39,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
             Text(
               activeQuestion.text,
               style: TextStyle(fontSize: 21,
-                  color: Colors.white
+                  color: Colors.white,
+                decoration: TextDecoration.none,
               ),
               textAlign: TextAlign.center,
             ),
@@ -48,6 +49,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
             ),
             ...activeQuestion.getShuffledAnswers().map((item){
               return Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+               crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [AnswerScreen(
                     answerText: item ,
                     onTap: () {
@@ -60,7 +63,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
 
             }),
            ]
-        ),
+        )
       ),
     );
   }}

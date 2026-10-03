@@ -27,7 +27,6 @@ class _QuizState extends State<Quiz> {
 
      if (selectedAnswers.length == questions.length){
        setState(() {
-         selectedAnswers = [];
          activeScreen = 'results_screen';
        });
      }
@@ -43,15 +42,16 @@ class _QuizState extends State<Quiz> {
       );
     }
     if (activeScreen == 'results_screen') {
-      screenWidget = ResultsScreen(chosenAnswer: selectedAnswers,);
+      screenWidget = ResultsScreen(
+        chosenAnswer: selectedAnswers,);
     }
 
     return  Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color.fromARGB(255, 0, 151, 253),
-              Color.fromARGB(255, 128, 246, 246),
+              Color.fromARGB(255, 120, 70, 209),
+              Color.fromARGB(255, 182, 176, 193),
             ],
             begin: Alignment.topRight,
             end: Alignment.bottomRight,

@@ -1,6 +1,6 @@
 import 'package:adding_data_model_and_dummy_data/questions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:adding_data_model_and_dummy_data/questions_summary.dart';
 
 class ResultsScreen extends StatelessWidget{
   const ResultsScreen({super.key, required this.chosenAnswer,});
@@ -24,6 +24,12 @@ class ResultsScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+   final finalData = getFinalData();
+    final numTotalQuestions = questions.length;
+    final numCorrectQuestions = finalData.where((data) {
+      return data['user_answer'] == data['correct_answer'];
+    }).length;
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -31,14 +37,29 @@ class ResultsScreen extends StatelessWidget{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('You answered X out of Y correctly'),
+
+            Text(
+                'You answered $numCorrectQuestions out of $numTotalQuestions questions correctly!!',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 25,
+              color: Colors.white,
+                decoration: TextDecoration.none
+              ),
+            ),
             const SizedBox(height: 15,),
-            const Text('List of questions and answers ...'),
+            QuestionsSummary(getFinalData()),
             const SizedBox(height: 15,),
             TextButton(
                 onPressed: (){},
-                child: const Text('Restart Quiz')),
-
+                child: const Text(
+                  'Restart Quiz',
+                    style: TextStyle(
+                      fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                    ),
+                ),
+            ),
           ],
         ),
       ),
