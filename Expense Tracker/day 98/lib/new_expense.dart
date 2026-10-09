@@ -11,6 +11,17 @@ class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
 
+  void _activeDatePicker (){
+    final now = DateTime.now();
+    final firstDate = DateTime(now.year-1 , now.month, now.day);
+
+    showDatePicker(context: context,
+  initialDate: now,
+  firstDate: firstDate,
+  lastDate: now,
+    );
+}
+
   @override
   void dispose() {
     _titleController.dispose();
@@ -33,17 +44,38 @@ class _NewExpenseState extends State<NewExpense> {
             ),
           ),
           SizedBox(height: 8,),
-          TextField(
-            controller: _amountController,
-            maxLength: 10,
-            keyboardType: TextInputType.number,
-            decoration: const InputDecoration(
-              prefixText: '\$ ',
-              label: Text('Amount'),
-            ),
-          ),
           Row(
             children: [
+              Expanded(
+                child: TextField(
+                  controller: _amountController,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    prefixText: '\$ ',
+                    label: Text('Amount'),
+                  ),
+                ),
+              ),
+              SizedBox(width: 8,),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text('Selected Date', ),
+                    IconButton(
+                        onPressed: _activeDatePicker,
+                        icon: Icon(Icons.calendar_month,
+                        ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+              SizedBox(height: 8,),
+              Row(
+                children: [
               TextButton(
                   onPressed: () {
                     Navigator.pop(context);
@@ -63,5 +95,4 @@ class _NewExpenseState extends State<NewExpense> {
       ),
     );
   }
-
 }
