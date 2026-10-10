@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:expenses_tracker/expense.dart';
 
 class NewExpense extends StatefulWidget{
   @override
@@ -10,16 +11,22 @@ class NewExpense extends StatefulWidget{
 class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
+  DateTime? _selectedDate;
+  Category _selectedCategory = Category.food;
 
-  void _activeDatePicker (){
+  void _activeDatePicker () async{
     final now = DateTime.now();
     final firstDate = DateTime(now.year-1 , now.month, now.day);
 
-    showDatePicker(context: context,
-  initialDate: now,
-  firstDate: firstDate,
-  lastDate: now,
+   final pickedDate = await showDatePicker(
+     context: context,
+     initialDate: now,
+     firstDate: firstDate,
+     lastDate: now,
     );
+   setState(() {
+     _selectedDate = pickedDate;
+   });
 }
 
   @override
@@ -51,7 +58,7 @@ class _NewExpenseState extends State<NewExpense> {
                   controller: _amountController,
                   keyboardType: TextInputType.number,
                   decoration: const InputDecoration(
-                    prefixText: '\$ ',
+                    prefixText: 'Rs ',
                     label: Text('Amount'),
                   ),
                 ),
@@ -62,7 +69,11 @@ class _NewExpenseState extends State<NewExpense> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('Selected Date', ),
+                    Text(
+                        _selectedDate == null
+                            ? 'No date selected'
+                            : formatted.format(_selectedDate!),
+                    ), //
                     IconButton(
                         onPressed: _activeDatePicker,
                         icon: Icon(Icons.calendar_month,
@@ -76,6 +87,24 @@ class _NewExpenseState extends State<NewExpense> {
               SizedBox(height: 8,),
               Row(
                 children: [
+                  DropdownButton(
+                    value: _selectedCategory,
+                     items: Category.values.map(
+                  (category) => DropdownMenuItem(
+                    value: category,
+                    child: Text (
+                      category.name.toUpperCase(),),),
+                  )
+                         .toList(),
+                         onChanged: (value) {
+                       if (value == null){
+                         return;
+                       }
+                           setState(() {
+                             _selectedCategory = value;
+                           });
+                         }),
+              Spacer(),
               TextButton(
                   onPressed: () {
                     Navigator.pop(context);
