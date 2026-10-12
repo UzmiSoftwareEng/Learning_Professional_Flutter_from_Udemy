@@ -1,8 +1,14 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:expenses_tracker/expense.dart';
 
 class NewExpense extends StatefulWidget{
+    const NewExpense({super.key, required this.onAddExpense});
+
+  final void Function(Expense expense) onAddExpense;
+
   @override
   State<NewExpense> createState()  {
     return _NewExpenseState();
@@ -50,10 +56,18 @@ class _NewExpenseState extends State<NewExpense> {
       );
       return;
     }
+    widget.onAddExpense(
+      Expense(
+        title: _titleController.text,
+        amount: enteredAmount,
+        category: _selectedCategory,
+        date: _selectedDate!,
+       ),
+     );
+    Navigator.pop(context);
    }
 
-
-  @override
+   @override
   void dispose() {
     _titleController.dispose();
     _amountController.dispose();
@@ -63,7 +77,7 @@ class _NewExpenseState extends State<NewExpense> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.fromLTRB(16, 48, 16, 16),
       child: Column(
         children: [
           TextField(
