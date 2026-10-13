@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:expenses_tracker/expense.dart';
 
 class NewExpense extends StatefulWidget{
