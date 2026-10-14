@@ -1,12 +1,38 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:expenses_tracker/expenses.dart';
 
+var kColorScheme = ColorScheme.fromSeed(seedColor:  Color.fromARGB(200, 96, 40, 150));
 void main (){
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true),
+      theme: ThemeData().copyWith(
+          useMaterial3: true,
+          colorScheme: kColorScheme,
+        appBarTheme: const AppBarTheme().copyWith(
+          backgroundColor: kColorScheme.onPrimaryContainer,
+          foregroundColor: kColorScheme.primaryContainer,
+        ),
+        cardTheme: const CardThemeData().copyWith(
+          color: kColorScheme.secondaryContainer,
+          margin: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 16,
+          ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: kColorScheme.primaryContainer,
+            ),
+        ),
+        textTheme: ThemeData().textTheme.copyWith(
+          titleLarge: TextStyle(fontWeight: FontWeight.normal,
+            color: kColorScheme.onSecondaryContainer,
+            fontSize: 15,
+
+          ),
+        ),
+      ),
       home: Expenses(),
       ),
   );
