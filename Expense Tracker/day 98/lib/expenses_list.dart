@@ -20,10 +20,9 @@ class ExpensesList extends StatelessWidget {
         key: ValueKey(expenses[index]),
         direction: DismissDirection.endToStart,
         background: Container(
-          color: Colors.purple.shade300,
+          color: Theme.of(context).colorScheme.error.withOpacity(0.5),
           alignment: Alignment.centerRight,
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          child: Icon(Icons.delete, color: Colors.white,),
+          margin: EdgeInsets.symmetric(horizontal: Theme.of(context).cardTheme.margin!.horizontal,)
         ),
         confirmDismiss: (direction) async {
           final shouldDelete = await showDialog<bool>(
