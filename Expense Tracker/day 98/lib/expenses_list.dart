@@ -22,8 +22,10 @@ class ExpensesList extends StatelessWidget {
         background: Container(
           color: Theme.of(context).colorScheme.error.withOpacity(0.5),
           alignment: Alignment.centerRight,
-          margin: EdgeInsets.symmetric(horizontal: Theme.of(context).cardTheme.margin!.horizontal,)
-        ),
+          margin: EdgeInsets.symmetric(
+            horizontal: Theme.of(context).cardTheme.margin!.horizontal,
+          ), //
+        ), //
         confirmDismiss: (direction) async {
           final shouldDelete = await showDialog<bool>(
             context: context,
