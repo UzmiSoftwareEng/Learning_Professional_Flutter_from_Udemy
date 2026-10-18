@@ -5,7 +5,7 @@ import 'package:adding_data_model_and_dummy_data/questions.dart';
 import 'package:adding_data_model_and_dummy_data/results_screen.dart';
 
 class Quiz extends StatefulWidget{
-  const Quiz({super.key});
+  const Quiz({super.key,});
 
   @override
   State<StatefulWidget> createState() {
@@ -21,6 +21,12 @@ class _QuizState extends State<Quiz> {
       activeScreen = 'Question_Screen';
     });
   }
+   void restartQuiz() {
+    setState(() {
+      selectedAnswers = [];
+      activeScreen = 'Question_Screen';
+    });
+   }
 
   void chooseAnswer(String answer) {
      selectedAnswers.add(answer);
@@ -43,7 +49,9 @@ class _QuizState extends State<Quiz> {
     }
     if (activeScreen == 'results_screen') {
       screenWidget = ResultsScreen(
-        chosenAnswer: selectedAnswers,);
+        chosenAnswer: selectedAnswers,
+       onRestart: restartQuiz,
+      );
     }
 
     return  Container(

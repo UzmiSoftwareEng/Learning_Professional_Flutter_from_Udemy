@@ -50,7 +50,7 @@ class Chart extends StatelessWidget {
           colors: [
             Theme.of(context)
                 .colorScheme
-                .primary
+                .secondary
                 .withOpacity(0.5),
             Theme.of(context)
                 .colorScheme

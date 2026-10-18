@@ -1,11 +1,17 @@
 import 'package:adding_data_model_and_dummy_data/questions.dart';
 import 'package:flutter/material.dart';
 import 'package:adding_data_model_and_dummy_data/questions_summary.dart';
+import 'package:adding_data_model_and_dummy_data/quiz.dart';
 
 class ResultsScreen extends StatelessWidget{
-  const ResultsScreen({super.key, required this.chosenAnswer,});
+  const ResultsScreen({
+    super.key,
+    required this.chosenAnswer,
+    required this.onRestart,
+  });
 
  final List<String> chosenAnswer;
+ final VoidCallback onRestart;
 
  List<Map<String, Object >> getFinalData() {
    final List<Map<String, Object>> finalData = [];
@@ -49,9 +55,10 @@ class ResultsScreen extends StatelessWidget{
             const SizedBox(height: 15,),
             QuestionsSummary(getFinalData()),
             const SizedBox(height: 15,),
-            TextButton(
-                onPressed: (){},
-                child: const Text(
+            TextButton.icon(
+              icon: Icon(Icons.restart_alt, color: Colors.white,),
+                onPressed: onRestart,
+                label: const Text(
                   'Restart Quiz',
                     style: TextStyle(
                       fontSize: 18,

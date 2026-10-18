@@ -15,8 +15,8 @@ class MyQuizApp extends StatelessWidget {
           decoration: BoxDecoration(
           gradient: LinearGradient(
           colors: [
-          Color.fromARGB(200, 78, 13, 151),
-          Color.fromARGB(255, 78, 13, 151),
+          Color.fromARGB(169, 108, 126, 200),
+          Color.fromARGB(255, 13, 45, 151),
     ],
     ),
     ),

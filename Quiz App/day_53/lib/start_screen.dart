@@ -9,8 +9,10 @@ class StartScreen  extends StatelessWidget{
         child: Column (
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/quiz_logo.jpg',
+            Image.asset(
+              'assets/images/quiz_logo.jpg',
             width: 200,
+              color: Color.fromARGB(200, 80, 253, 177),
             ),
             SizedBox(
               height: 15,
@@ -30,7 +32,7 @@ class StartScreen  extends StatelessWidget{
                     style: TextButton.styleFrom(
                       foregroundColor: Colors.white
                     ),
-                    label: Icon(Icons.quiz_rounded,
+                    label: Icon(Icons.arrow_right_outlined,
                     )),
                 TextButton(
                     onPressed: (){},

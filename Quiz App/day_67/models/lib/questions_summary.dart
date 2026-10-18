@@ -31,15 +31,14 @@ class QuestionsSummary extends StatelessWidget {
                   SizedBox(
                       width: 32,
                       child: Text(
-                          '$questionNumber',
+                          '$questionNumber.',
                           style: const TextStyle(
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
                             decoration: TextDecoration.none
                           ),
                         ),
                       ),
-                  const SizedBox(width: 12),
 
                   // Question + Answers
                   Expanded(
@@ -76,7 +75,7 @@ class QuestionsSummary extends StatelessWidget {
                         Text(
                           'Correct answer: $correctAnswer',
                           style: const TextStyle(
-                            color: Colors.blueGrey,
+                            color: Colors.purple,
                             fontSize: 15,
                             decoration: TextDecoration.none,
                           ),

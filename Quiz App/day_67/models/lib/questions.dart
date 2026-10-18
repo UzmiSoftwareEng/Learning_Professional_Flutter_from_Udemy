@@ -26,4 +26,52 @@ const questions = [
     'Ignore data changes',
     'Render UI that does not depend on data ',
   ]),
+  QuizQuestion('How are flutter UI built?',
+      [
+        'By combining widgets in code',
+        'By combining widgets in a visual editor',
+        'By defining widgets in config files',
+        'By using Xcode for iOS and Android Studio for Android '
+      ]),
+  QuizQuestion(
+      'What is the purpose of statefulwidget?',
+      [
+        'Update UI as data changes',
+        'Update data as UI changes',
+        'Ignore data changes',
+        'Render UI that does not depend on data ',
+      ]),
+  QuizQuestion(
+      'What is the purpose of statefulwidget?',
+      [
+        'Update UI as data changes',
+        'Update data as UI changes',
+        'Ignore data changes',
+        'Render UI that does not depend on data ',
+      ]),
+  QuizQuestion(
+      'What is the purpose of statefulwidget?',
+      [
+        'Update UI as data changes',
+        'Update data as UI changes',
+        'Ignore data changes',
+        'Render UI that does not depend on data ',
+      ]),
+  QuizQuestion(
+      'What is the purpose of statefulwidget?',
+      [
+        'Update UI as data changes',
+        'Update data as UI changes',
+        'Ignore data changes',
+        'Render UI that does not depend on data ',
+      ]),
+  QuizQuestion(
+      'What is the purpose of statefulwidget?',
+      [
+        'Update UI as data changes',
+        'Update data as UI changes',
+        'Ignore data changes',
+        'Render UI that does not depend on data ',
+      ]),
+
 ];
