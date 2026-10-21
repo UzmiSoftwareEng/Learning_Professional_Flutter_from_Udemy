@@ -25,13 +25,13 @@ class ExpenseItem extends StatelessWidget{
             ),
             Row(
               children: [
-                Text('\$${expense.amount.toStringAsFixed(3)}'), //12.3333793 = 12.333
+                Text('\$${expense.amount.toStringAsFixed(2)}'), //12.3333793 = 12.333
                 Spacer(),
                 Row(
                   children: [
                     Icon(categoryIcons[expense.category]),
                     SizedBox(
-                      height: 7,
+                      width: 7,
                     ),
                     Text(expense.formattedDate ),
                   ],
