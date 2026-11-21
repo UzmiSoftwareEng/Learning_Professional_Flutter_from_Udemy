@@ -36,8 +36,8 @@ const availableCategories = [
   ),
 ];
 
-const dummyMeal = [
-Meal(
+const dummyMeals = [
+ Meal(
   id: 'm1',
   categories: [
     'c2',
@@ -67,6 +67,7 @@ imageUrl:
    'https://upload.wikimedia.org/wikipedia/commons/6/61/Hamburger_%289%29.jpg',
 duration: 30,
 affordability: Affordability.affordable,
+complexity: Complexity.simple,
 isGlutenFree: false,
 isLactoseFree: false,
 isVegetarian: false,
@@ -102,6 +103,7 @@ imageUrl:
   'PASTE_SPAGHETTI_IMAGE_URL_HERE',
 duration: 25,
 affordability: Affordability.pricey,
+complexity: Complexity.hard,
 isGlutenFree: false,
 isLactoseFree: true,
 isVegetarian: true,
@@ -114,6 +116,7 @@ Meal(
    ],
    title: 'German Schnitzel',
   affordability: Affordability.luxurious,
+  complexity: Complexity.challenging,
 steps: [
     'Prepare the chicken breast.',
     'Flatten the chicken using a meat mallet.',
@@ -137,7 +140,6 @@ imageUrl:
     'Black pepper',
     'Cooking oil',
   ],
-
 
   isGlutenFree: false,
 isLactoseFree: true,

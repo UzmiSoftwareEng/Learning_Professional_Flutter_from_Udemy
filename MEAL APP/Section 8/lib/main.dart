@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-//import 'package:home_screen/screens/categories.dart';
-import 'package:home_screen/screens/meals.dart';
+import 'package:home_screen/screens/categories.dart';
 
 final theme = ThemeData(
     colorScheme: ColorScheme.fromSeed(
@@ -23,11 +22,7 @@ void main() {
   Widget build(BuildContext context){
       return MaterialApp(
       theme: theme,
-      home: Scaffold(
-        body: MealsScreen(title: 'Different categories....',
-          meals: [],
-          ),
-        ),
+      home: CategoriesScreen(),
       );
     }
   }
