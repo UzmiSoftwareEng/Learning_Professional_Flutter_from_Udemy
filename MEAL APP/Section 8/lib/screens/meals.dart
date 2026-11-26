@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:home_screen/main.dart';
 import 'package:home_screen/models/meal.dart';
+import 'package:home_screen/widgets/meal_item.dart';
 
 class MealsScreen extends StatelessWidget {
   const MealsScreen({
@@ -15,8 +15,9 @@ class MealsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget content = ListView.builder(
-        itemBuilder: (ctx, index) => Text(
-         meals[index].title,
+      itemCount: meals.length,
+        itemBuilder: (ctx, index) => MealItem(
+            meal: meals[index]
      ),
     ); //
 
@@ -27,22 +28,22 @@ class MealsScreen extends StatelessWidget {
           children: [
             Text('Uh oh....No meal found!!',
               style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-              color: Theme.of(context).colorScheme.onBackground,
+              color: Theme.of(context).colorScheme.onSurface,
               ),
             ) , //
             SizedBox(height: 15,),
             Text('Select something new and tasty',
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
           ],
         ),
       );
       if (meals.isNotEmpty) {
-        content = ListView.builder(itemBuilder: (ctx, index) => Text(
-          meals[index].title,
-          ),
+        content = ListView.builder(
+          itemCount: meals.length,
+          itemBuilder: (ctx, index) => MealItem(meal: meals[index]),
         );
       }
     }

@@ -40,6 +40,7 @@ const dummyMeals = [
   id: 'm1',
   categories: [
     'c2',
+    'c3',
     'c5',
   ],
   title: 'Classic Burger',
@@ -63,7 +64,7 @@ steps: [
    'Serve the burger fresh.',
 ],
 imageUrl:
-   'https://upload.wikimedia.org/wikipedia/commons/6/61/Hamburger_%289%29.jpg',
+'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/NCI_Visuals_Food_Hamburger.jpg/1280px-NCI_Visuals_Food_Hamburger.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail',
 duration: 30,
 affordability: Affordability.affordable,
 complexity: Complexity.simple,
@@ -75,7 +76,7 @@ isVegan: false,
 Meal(
   id: 'm2',
   categories: [
-    'c4'
+    'c1'
   ],
   title: 'Spaghetti with Tomato Sauce',
 ingredients: [
@@ -99,8 +100,8 @@ steps: [
   'Serve hot.',
 ],
 imageUrl:
-  'PASTE_SPAGHETTI_IMAGE_URL_HERE',
-duration: 25,
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWqWG2jXKVhGbO7xs7ODErinB_HfIFM0g0Icl6WQGtpQ&s=10',
+  duration: 25,
 affordability: Affordability.pricey,
 complexity: Complexity.hard,
 isGlutenFree: false,
@@ -111,7 +112,7 @@ isVegan: true,
 Meal(
    id: 'm3',
    categories: [
-     'c1'
+     'c4'
    ],
    title: 'German Schnitzel',
   affordability: Affordability.luxurious,
@@ -128,7 +129,7 @@ steps: [
     'Serve with your favourite side dish.',
 ],
 imageUrl:
-    'PASTE_SCHNITZEL_IMAGE_URL_HERE',
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpWHdhmdSrJTsasoe6z-zGWjac4MPJatiIPW8JdW7v6Q&s=10',
   duration: 40,
   ingredients: [
     'Chicken breast',
